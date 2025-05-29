@@ -1,0 +1,74 @@
+<body>
+	<div class="container">
+		<form
+			id="bai_3"
+			class="grid gap-2 grid-cols-2 steel-border mt-5 text-white p-3"
+			action=""
+			method="get"
+		>
+			<h2 class="col-span-2 cyberpunk-unicode text-center">
+				QUY ĐỔI USD SANG VNĐ
+			</h2>
+			<label
+				class="text-xl cyberpunk-unicode"
+				for="usdRate"
+				>Tỷ giá USD:</label
+			>
+			<input
+				class="cyberpunk-unicode rounded-md focus:outline-none focus:border-none px-3 py-1 text-inherit bg-inherit focus:invert"
+				id="usdRate"
+				type="number"
+				value="23500"
+				step="any"
+			/>
+			<label
+				class="cyberpunk-unicode"
+				class="text-xl"
+				for="amount"
+				>Số lượng quy đổi:</label
+			>
+			<input
+				class="cyberpunk-unicode rounded-md focus:outline-none focus:border-none px-3 py-1 text-inherit bg-inherit focus:invert"
+				id="amount"
+				type="number"
+				value="1"
+			/>
+			<div
+				class="col-span-2 text-inherit bg-inherit cyberpunk-unicode flex gap-2"
+			>
+				<button
+					class="w-1/2 rounded-md text-inherit bg-inherit hover:invert"
+					type="submit"
+				>
+					OK
+				</button>
+				<button
+					class="w-1/2 rounded-md text-inherit bg-inherit hover:invert"
+					type="reset"
+				>
+					Cancle
+				</button>
+			</div>
+		</form>
+		<div class="result text-center"></div>
+	</div>
+	<script>
+		document
+			.getElementById("bai_3")
+			.addEventListener("submit", function (e) {
+				e.preventDefault();
+				const form = e.target;
+				const usdRate = form.querySelector("#usdRate").value;
+				const amount = form.querySelector("#amount").value;
+				const total = parseFloat(usdRate) * parseInt(amount);
+				console.log(total);
+
+				const resultElement = document.querySelector(
+					".result.text-center"
+				);
+				resultElement.innerHTML = ``;
+				resultElement.innerHTML = `<i class="fa fa-money-bill text-xl"></i> <span class="counter text-xl cyberpunk-unicode">${total}</span><span class="text-xl cyberpunk-unicode"> VND</span> `;
+				$(".counter").countUp();
+			});
+	</script>
+</body>

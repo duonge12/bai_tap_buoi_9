@@ -1,0 +1,113 @@
+<body>
+	<div class="container">
+		<form
+			id="bai_2"
+			class="grid gap-2 grid-cols-2 steel-border mt-5 text-white p-3"
+		>
+			<h2 class="col-span-2 cyberpunk-unicode text-center text-2xl">
+				TÍNH GIÁ TRỊ TRUNG BÌNH
+			</h2>
+			<label
+				class="cyberpunk-unicode text-xl"
+				for="num1"
+				>Số 1:</label
+			>
+			<input
+				id="float1"
+				type="number"
+				class="cyberpunk-unicode rounded-md focus:outline-none focus:border-none px-3 py-1 text-inherit bg-inherit focus:invert"
+				step="any"
+				required
+			/>
+
+			<label
+				class="cyberpunk-unicode text-xl"
+				for="num2"
+				>Số 2:</label
+			>
+			<input
+				id="float2"
+				type="number"
+				class="cyberpunk-unicode rounded-md focus:outline-none focus:border-none px-3 py-1 text-inherit bg-inherit focus:invert"
+				step="any"
+				required
+			/>
+
+			<label
+				class="cyberpunk-unicode text-xl"
+				for="num3"
+				>Số 3:</label
+			>
+			<input
+				id="float3"
+				type="number"
+				class="cyberpunk-unicode rounded-md focus:outline-none focus:border-none px-3 py-1 text-inherit bg-inherit focus:invert"
+				step="any"
+				required
+			/>
+
+			<label
+				class="cyberpunk-unicode text-xl"
+				for="num4"
+				>Số 4:</label
+			>
+			<input
+				id="float4"
+				type="number"
+				class="cyberpunk-unicode rounded-md focus:outline-none focus:border-none px-3 py-1 text-inherit bg-inherit focus:invert"
+				step="any"
+				required
+			/>
+
+			<label
+				class="cyberpunk-unicode text-xl"
+				for="num5"
+				>Số 5:</label
+			>
+			<input
+				id="float5"
+				type="number"
+				class="cyberpunk-unicode rounded-md focus:outline-none focus:border-none px-3 py-1 text-inherit bg-inherit focus:invert"
+				step="any"
+				required
+			/>
+			<div class="col-span-2 flex gap-2 cyberpunk-unicode">
+				<button
+					type="submit"
+					class="w-1/2 rounded-md bg-inherit hover:invert"
+				>
+					Tính
+				</button>
+				<button
+					type="reset"
+					class="w-1/2 rounded-md bg-inherit hover:invert"
+				>
+					Xoá
+				</button>
+			</div>
+		</form>
+		<div class="result text-center"></div>
+	</div>
+
+	<script>
+		document
+			.getElementById("bai_2")
+			.addEventListener("submit", function (e) {
+				e.preventDefault();
+				const form = e.target;
+				let sum = 0;
+				const inputs = form.querySelectorAll("input");
+				inputs.forEach((element) => {
+					sum += parseFloat(element.value);
+				});
+				const result = sum / inputs.length;
+
+				const resultElement = document.querySelector(
+					".result.text-center"
+				);
+				resultElement.innerHTML = ``;
+				resultElement.innerHTML = `<i class="fa fa-money-bill text-xl"></i> <span class="counter text-xl cyberpunk-unicode">${result}</span>`;
+				$(".counter").countUp();
+			});
+	</script>
+</body>

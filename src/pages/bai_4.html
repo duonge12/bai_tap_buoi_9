@@ -1,0 +1,77 @@
+<body>
+	<div class="container">
+		<form
+			id="bai_4"
+			class="grid gap-2 grid-cols-2 steel-border mt-5 text-white p-3"
+			action=""
+			method="get"
+		>
+			<h2 class="col-span-2 cyberpunk-unicode text-center">
+				Tính diện tích chu vi hình chữ nhật
+			</h2>
+			<label
+				class="text-xl cyberpunk-unicode"
+				for="length"
+				>Chiều dài:</label
+			>
+			<input
+				class="cyberpunk-unicode rounded-md focus:outline-none focus:border-none px-3 py-1 text-inherit bg-inherit focus:invert"
+				id="length"
+				type="number"
+				value="1"
+				step="any"
+			/>
+			<label
+				class="cyberpunk-unicode"
+				class="text-xl"
+				for="width"
+				>Chiều rộng:</label
+			>
+			<input
+				class="cyberpunk-unicode rounded-md focus:outline-none focus:border-none px-3 py-1 text-inherit bg-inherit focus:invert"
+				id="width"
+				type="number"
+				step="any"
+				value="1"
+			/>
+			<div
+				class="col-span-2 text-inherit bg-inherit cyberpunk-unicode flex gap-2"
+			>
+				<button
+					class="w-1/2 rounded-md text-inherit bg-inherit hover:invert"
+					type="submit"
+				>
+					OK
+				</button>
+				<button
+					class="w-1/2 rounded-md text-inherit bg-inherit hover:invert"
+					type="reset"
+				>
+					Cancle
+				</button>
+			</div>
+		</form>
+		<div class="result text-center"></div>
+	</div>
+	<script>
+		document
+			.getElementById("bai_4")
+			.addEventListener("submit", function (e) {
+				e.preventDefault();
+				const form = e.target;
+				const dai = form.querySelector("#length").value;
+				const rong = form.querySelector("#width").value;
+				const chuVi = (parseFloat(dai) + parseFloat(rong)) * 2;
+				const dienTich = parseFloat(dai) * parseFloat(rong);
+
+				const resultElement = document.querySelector(
+					".result.text-center"
+				);
+				resultElement.innerHTML = ``;
+				resultElement.innerHTML = `
+                    <span class="text-xl cyberpunk-unicode">Chu vi <span class="counter">${chuVi}</span></span><br/>
+                    <span class="text-xl cyberpunk-unicode">Diện tích <span class="counter">${dienTich}</span></span><br/>`;
+				$(".counter").countUp();
+			});
+	</script>
+</body>

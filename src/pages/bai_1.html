@@ -1,0 +1,72 @@
+<body>
+	<div class="container">
+		<form
+			id="bai_1"
+			class="grid gap-2 grid-cols-2 steel-border mt-5 text-white p-3"
+			action=""
+			method="get"
+		>
+			<h2 class="col-span-2 cyberpunk-unicode text-center">
+				TÍNH LƯƠNG CƠ BẢN
+			</h2>
+			<label
+				class="text-xl cyberpunk-unicode"
+				for="hourRate"
+				>Lương 1 ngày:</label
+			>
+			<input
+				class="cyberpunk-unicode rounded-md focus:outline-none focus:border-none px-3 py-1 text-inherit bg-inherit focus:invert"
+				id="hourRate"
+				type="number"
+				value="100000"
+			/>
+			<label
+				class="cyberpunk-unicode"
+				class="text-xl"
+				for="dayCount"
+				>Số ngày làm:</label
+			>
+			<input
+				class="cyberpunk-unicode rounded-md focus:outline-none focus:border-none px-3 py-1 text-inherit bg-inherit focus:invert"
+				id="dayCount"
+				type="number"
+				value="1"
+			/>
+			<div
+				class="col-span-2 text-inherit bg-inherit cyberpunk-unicode flex gap-2"
+			>
+				<button
+					class="w-1/2 rounded-md text-inherit bg-inherit hover:invert"
+					type="submit"
+				>
+					OK
+				</button>
+				<button
+					class="w-1/2 rounded-md text-inherit bg-inherit hover:invert"
+					type="reset"
+				>
+					Cancle
+				</button>
+			</div>
+		</form>
+		<div class="result text-center"></div>
+	</div>
+	<script>
+		document
+			.getElementById("bai_1")
+			.addEventListener("submit", function (e) {
+				e.preventDefault();
+				const form = e.target;
+				const hourRate = form.querySelector("#hourRate").value;
+				const dayCount = form.querySelector("#dayCount").value;
+				const total = hourRate * dayCount;
+
+				const resultElement = document.querySelector(
+					".result.text-center"
+				);
+				resultElement.innerHTML = ``;
+				resultElement.innerHTML = `<i class="fa fa-money-bill text-xl"></i> <span class="counter text-xl cyberpunk-unicode">${total}</span>`;
+				$(".counter").countUp();
+			});
+	</script>
+</body>

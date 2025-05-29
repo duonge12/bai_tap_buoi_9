@@ -1,0 +1,18 @@
+{
+	"name": "bt_buoi_9",
+	"version": "1.0.0",
+	"main": "index.js",
+	"scripts": {
+		"tailwind/cli": "npx @tailwindcss/cli -i ./src/css/input.css -o ./src/css/index.css --watch",
+		"live": "live-server ./src --port=5000 --host=127.0.0.1 --open=./index.html --browser=chrome"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"description": "",
+	"dependencies": {
+		"@tailwindcss/cli": "^4.1.8",
+		"prettier": "^3.5.3",
+		"tailwindcss": "^4.1.8"
+	}
+}

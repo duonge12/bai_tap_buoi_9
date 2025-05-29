@@ -1,0 +1,65 @@
+<body>
+	<div class="container">
+		<form
+			id="bai_5"
+			class="grid gap-2 grid-cols-2 steel-border mt-5 text-white p-3"
+			action=""
+			method="get"
+		>
+			<h2 class="col-span-2 cyberpunk-unicode text-center">
+				Tính tổng 2 ký số
+			</h2>
+			<label
+				class="text-xl cyberpunk-unicode"
+				for="numb"
+				>Nhập số:</label
+			>
+			<input
+				class="cyberpunk-unicode rounded-md focus:outline-none focus:border-none px-3 py-1 text-inherit bg-inherit focus:invert"
+				id="numb"
+				type="number"
+				value="10"
+				max="99"
+				min="10"
+			/>
+			<div
+				class="col-span-2 text-inherit bg-inherit cyberpunk-unicode flex gap-2"
+			>
+				<button
+					class="w-1/2 rounded-md text-inherit bg-inherit hover:invert"
+					type="submit"
+				>
+					OK
+				</button>
+				<button
+					class="w-1/2 rounded-md text-inherit bg-inherit hover:invert"
+					type="reset"
+				>
+					Cancle
+				</button>
+			</div>
+		</form>
+		<div class="result text-center"></div>
+	</div>
+	<script>
+		document
+			.getElementById("bai_5")
+			.addEventListener("submit", function (e) {
+				e.preventDefault();
+				const form = e.target;
+				const kySo = form.querySelector("#numb").value;
+				const array = Array.from(kySo.toString().split(""));
+				const result = array.reduce(
+					(acc, cur) => acc + parseInt(cur),
+					0
+				);
+
+				const resultElement = document.querySelector(
+					".result.text-center"
+				);
+				resultElement.innerHTML = ``;
+				resultElement.innerHTML = `<span class="counter text-xl cyberpunk-unicode">${result}</span>`;
+				$(".counter").countUp();
+			});
+	</script>
+</body>

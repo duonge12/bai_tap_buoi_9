@@ -1,0 +1,44 @@
+@import "tailwindcss";
+@font-face {
+	font-family: "Cyberpunk";
+	src: url("../font/saiba-45.regular.otf") format("opentype");
+}
+@font-face {
+	font-family: "Cyberpunk-unicode";
+	src: url("../font/lunar-escape.regular.otf") format("opentype");
+}
+html {
+	font-size: 16px;
+}
+.cyberpunk {
+	font-family: "Cyberpunk", sans-serif;
+}
+.cyberpunk-unicode {
+	font-family: "Cyberpunk-unicode", sans-serif;
+}
+.active-nav-item {
+	color: var(--color-yellow-300);
+}
+.container {
+	max-width: 80%;
+	margin: 0 auto;
+}
+.steel-border {
+	border: 8px solid;
+	border-image: linear-gradient(
+			135deg,
+			#b0b0b0,
+			#f0f0f0,
+			#a0a0a0,
+			#e0e0e0,
+			#b0b0b0
+		)
+		1;
+	background-color: #1a1a1a;
+	border-radius: 6px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
